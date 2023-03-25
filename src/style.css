@@ -1,0 +1,150 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  margin-top: 80px;
+  border-radius: 10px;
+  padding: 20px 25px;
+  background-color: rgb(192, 219, 255);
+  box-shadow: 5px 5px 18px rgb(11, 9, 73);
+}
+.search {
+  border: 2px solid rgb(41, 10, 99);
+  border-radius: 10px;
+  padding: 1px 3px;
+  margin: 0 60px;
+}
+.sbox {
+  background-color: transparent;
+  border-width: 0px;
+  border: none;
+  outline: none;
+  font-size: larger;
+  padding: 2px 14px;
+  text-transform: capitalize;
+}
+.but {
+  background-color: transparent;
+  border: none;
+  font-size: 120%;
+  border-radius: 20px;
+  max-width: 120px;
+}
+.but:hover {
+  color: rgb(241, 248, 253);
+}
+#searchbtn {
+  padding-right: 0;
+}
+#currentbtn {
+  padding-right: 0;
+}
+
+.sec1 {
+  border: 2px solid rgb(41, 10, 99);
+  border-radius: 10px;
+  margin: 35px 60px;
+  padding-top: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.temoji {
+  position: relative;
+  bottom: 20px;
+  font-size: larger;
+}
+.we1 {
+  text-align: center;
+  padding-left: 10px;
+}
+.we2 {
+  padding-top: 30px;
+  padding-right: 5px;
+}
+.we3 {
+  padding-top: 20px;
+  margin-right: 20px;
+}
+.deg {
+  font-weight: bold;
+  font-size: 210%;
+}
+.atag {
+  text-decoration: none;
+  font-weight: normal;
+  color: rgb(45, 45, 93);
+}
+.atag:hover {
+  color: rgb(76, 39, 146);
+}
+.vl {
+  border-left: 2px solid rgb(41, 10, 99);
+  opacity: 0.4;
+  height: 173px;
+  padding-right: 8px;
+  margin-bottom: 5px;
+}
+.we4 {
+  line-height: 1.7;
+  padding-top: 10px;
+  padding-right: 15px;
+}
+.sec2 {
+  text-align: center;
+  line-height: 1.7;
+  font-size: x-large;
+  font-weight: bold;
+  transition: 150ms ease-in-out;
+}
+.sec2:hover {
+  background-color: rgb(155, 197, 252);
+  border-radius: 10px;
+}
+.bigger {
+  font-size: 120%;
+}
+.e {
+  font-size: 250%;
+}
+@media (max-width: 769px) {
+  .container {
+    margin-top: 0;
+  }
+  .but {
+    margin: 0 auto;
+  }
+  .sec1 {
+    display: block;
+    text-align: center;
+    max-height: 560px;
+  }
+  .vl {
+    border-left: none;
+    border-bottom: 2px solid rgb(41, 10, 99);
+    width: 180px;
+    margin: 0 auto;
+    position: relative;
+    bottom: 160px;
+  }
+  .we2 {
+    padding-top: 0;
+  }
+  .we4 {
+    text-align: left;
+    display: inline-block;
+    position: relative;
+    bottom: 150px;
+  }
+  .sec2 {
+    display: none;
+  }
+}

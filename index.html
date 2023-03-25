@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script
+      src="https://kit.fontawesome.com/b0c26b0f0d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/5daa8eb347.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather <i class="fa-solid fa-cloud-bolt"></i></h1>
+      <form action="" id="citySearch">
+        <div class="search">
+          <div class="row">
+            <div class="col-md-6">
+                <input
+                  type="search"
+                  placeholder="Type a city name..."
+                  class="sbox"
+                  style="width: 100%"
+                  id="city-input"
+                />
+                          </div>
+                          <input
+                type="submit"
+                value="Search 🔍"
+                class="but col-md-3"
+                id="searchbtn"
+                          />
+            <input
+              type="button"
+              value="Current"
+              class="but col-md-3"
+              id="currentbtn"
+            />
+          </div>
+        </div>
+      </form>
+      <div class="sec1">
+        <div class="we1">
+          <img class="today-icon" src="http://openweathermap.org/img/wn/10d@2x.png" id="todayIcon"></li>
+          <br />
+          <span class="temoji" id="description">Rainy</span>
+        </div>
+        <div class="we2">
+          <h4 id="city">New York</h4>
+          <span id="date"></span>
+        </div>
+        <div class="we3">
+          <h4 class="deg"><span id="degree">10</span>°C</h4>
+          <span id="tempHigh">12</span>°/<span id="tempLow">7</span>° feels like
+          <span id="feelslike">8</span>°
+        </div>
+        <div class="vl"></div>
+        <div class="we4">
+          Wind: <span id="wind">13</span>km/h <br />
+          Humidity: <span id="humidity"> 67</span>% <br />
+          AQI: <span id="aqi">110</span>
+        </div>
+      </div>
+      <div class="sec2">
+        <div class="row">
+          <div class="col-md-2">
+            Tue <br />
+            <span class="e">🌧️</span> <br />
+            <span class="bigger">9°</span>
+          </div>
+          <div class="col-md-2">
+            Wed <br />
+            <span class="e">🌦️</span> <br />
+            <span class="bigger">11°</span>
+          </div>
+          <div class="col-md-2">
+            Thu <br />
+            <span class="e">⛅</span> <br />
+            <span class="bigger">12°</span>
+          </div>
+          <div class="col-md-2">
+            Fri <br />
+            <span class="e">🌤️</span> <br />
+            <span class="bigger">13°</span>
+          </div>
+          <div class="col-md-2">
+            Sat <br />
+            <span class="e">☁️</span> <br />
+            <span class="bigger">10°</span>
+          </div>
+          <div class="col-md-2">
+            Sun <br />
+            <span class="e">🌦️</span> <br />
+            <span class="bigger">8°</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
