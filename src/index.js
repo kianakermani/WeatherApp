@@ -97,7 +97,7 @@ function showCurrentLocation() {
     let lat = position.coords.latitude;
 
     let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    let apiUrlCurrentAqi = `http://api.waqi.info/feed/lat=${lat}&lon=${lon}/?token=1f4cba53146181e48c2aeb1f4746903446e654a4`;
+    let apiUrlCurrentAqi = `https://api.waqi.info/feed/geo:${lat};${lon}/?token=1f4cba53146181e48c2aeb1f4746903446e654a4`;
 
     function showCurrentPosition(currentPosition) {
       console.log(currentPosition);
