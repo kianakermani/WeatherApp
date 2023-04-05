@@ -147,4 +147,8 @@ body {
   .sec2 {
     display: none;
   }
+  .we1 {
+    position: relative;
+    right: 4px;
+  }
 }
