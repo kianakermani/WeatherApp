@@ -40,49 +40,56 @@ ${day[time.getDay()]}  ${hour}:${minute}`;
 // search engine
 let apiKey = "a7d04d98e6479d4721e721b7181dac56";
 let apiAqi = "1f4cba53146181e48c2aeb1f4746903446e654a4";
-function cities(event) {
-  event.preventDefault();
+
+function showWeather(weather) {
+  document.querySelector("#description").innerHTML =
+    weather.data.weather[0].description;
+  document.querySelector("#feelslike").innerHTML = Math.round(
+    weather.data.main.feels_like
+  );
+  document.querySelector("#degree").innerHTML = Math.round(
+    weather.data.main.temp
+  );
+  document.querySelector("#tempHigh").innerHTML = Math.round(
+    weather.data.main.temp_max
+  );
+  document.querySelector("#tempLow").innerHTML = Math.round(
+    weather.data.main.temp_min
+  );
+  document.querySelector("#humidity").innerHTML = weather.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    weather.data.wind.speed
+  );
+  document
+    .querySelector("#todayIcon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`
+    );
+}
+function showAqi(Aqi) {
+  document.querySelector("#aqi").innerHTML = Aqi.data.data.aqi;
+}
+function search(city) {
   let cityName = document.querySelector("#city");
-  let city = document.querySelector("#city-input").value;
   city = city.trim();
   city = city.charAt(0).toUpperCase() + city.slice(1);
   cityName.innerHTML = city;
   let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a7d04d98e6479d4721e721b7181dac56&units=metric`;
   let apiPollution = `https://api.waqi.info/feed/${city}/?token=1f4cba53146181e48c2aeb1f4746903446e654a4`;
-  function showWeather(weather) {
-    document.querySelector("#description").innerHTML =
-      weather.data.weather[0].description;
-    document.querySelector("#feelslike").innerHTML = Math.round(
-      weather.data.main.feels_like
-    );
-    document.querySelector("#degree").innerHTML = Math.round(
-      weather.data.main.temp
-    );
-    document.querySelector("#tempHigh").innerHTML = Math.round(
-      weather.data.main.temp_max
-    );
-    document.querySelector("#tempLow").innerHTML = Math.round(
-      weather.data.main.temp_min
-    );
-    document.querySelector("#humidity").innerHTML = weather.data.main.humidity;
-    document.querySelector("#wind").innerHTML = Math.round(
-      weather.data.wind.speed
-    );
-    document
-      .querySelector("#todayIcon")
-      .setAttribute(
-        "src",
-        `http://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`
-      );
-  }
-  function showAqi(Aqi) {
-    document.querySelector("#aqi").innerHTML = Aqi.data.data.aqi;
-  }
   axios.get(apiUrlCity).then(showWeather);
   axios.get(apiPollution).then(showAqi);
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityelement = document.querySelector("#city-input");
+  search(cityelement.value);
+}
+
 let citySearch = document.getElementById("citySearch");
-citySearch.addEventListener("submit", cities);
+citySearch.addEventListener("submit", handleSubmit);
+search("New York");
 //longitude & latitude
 function showCurrentLocation() {
   function showPosition(position) {
