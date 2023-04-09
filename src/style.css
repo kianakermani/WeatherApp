@@ -69,6 +69,7 @@ body {
 .we2 {
   padding-top: 30px;
   padding-right: 5px;
+  padding-left: 10px;
 }
 .we3 {
   padding-top: 20px;
@@ -76,7 +77,15 @@ body {
 }
 .deg {
   font-weight: bold;
-  font-size: 210%;
+  font-size: 200%;
+}
+.unit {
+  font-weight: 500;
+  text-decoration: none;
+}
+.active {
+  color: black;
+  cursor: default;
 }
 .atag {
   text-decoration: none;
