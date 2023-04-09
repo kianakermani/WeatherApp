@@ -118,12 +118,6 @@ body {
   background-color: rgb(155, 197, 252);
   border-radius: 10px;
 }
-.bigger {
-  font-size: 120%;
-}
-.e {
-  font-size: 250%;
-}
 @media (max-width: 769px) {
   .container {
     margin-top: 0px;
