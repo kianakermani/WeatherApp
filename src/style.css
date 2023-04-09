@@ -11,7 +11,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 .container {
-  margin-top: 80px;
+  margin-top: 30px;
   border-radius: 10px;
   padding: 20px 25px;
   background-color: rgb(192, 219, 255);
@@ -126,7 +126,7 @@ body {
 }
 @media (max-width: 769px) {
   .container {
-    margin-top: 0;
+    margin-top: 0px;
   }
   .but {
     margin: 0 auto;
@@ -159,5 +159,16 @@ body {
   .we1 {
     position: relative;
     right: 5px;
+  }
+  .F {
+    display: none;
+  }
+  .deg {
+    position: relative;
+    left: 10px;
+  }
+  .C {
+    position: relative;
+    left: 10px;
   }
 }
