@@ -37,9 +37,74 @@ month = [
 let dateAndTime = document.querySelector("#date");
 dateAndTime.innerHTML = `${date} ${month[time.getMonth()]} , 
 ${day[time.getDay()]}  ${hour}:${minute}`;
-// search engine
+
 let apiKey = "a7d04d98e6479d4721e721b7181dac56";
 let apiAqi = "1f4cba53146181e48c2aeb1f4746903446e654a4";
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+  ];
+
+  return days[day + 1];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <br>
+          <span class="weather-forecast-temperature-min">  ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=a2dda52dce059eb8a14e95aaa0db6ab7&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showWeather(weather) {
   celsiusTemperature = weather.data.main.temp;
@@ -67,6 +132,8 @@ function showWeather(weather) {
       "src",
       `http://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`
     );
+
+  getForecast(weather.data.coord);
 }
 function showAqi(Aqi) {
   document.querySelector("#aqi").innerHTML = Aqi.data.data.aqi;
